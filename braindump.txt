@@ -1,0 +1,21 @@
+---WEB-BASED SPOTIFY MUSIC VISUALIZER PROJECT---
+
+>LIBRARIES
+    -BASELINE
+        -REACT(VITE)
+    -CSS
+        -MATERIAL UI
+    -VISUALS
+        -CANVAS
+    -AUDIO
+        -P5
+        -TONE.JS
+        -WEB AUDIO API
+>FEATURES/USER STORIES
+    -As a new or visiting user I want to be greeted by a home page so that I am welcomed to the site and know what the site does
+        -home page will feature app name, a welcome message, a short description and the number of available visualizer options
+        -will have a nav bar with "Log in to Spotify" button if user is not logged in "Log out" if user is signed in
+            -log in button will pop up modal with embedded spoify login form
+        -home page will display 1-3 examples of visualizers offered by site  
+    -As a user I want to be able to log in to my spotify account so that i can play music of my choice from it
+    -Upon linking my spotify account, as a user I want to be able to enjoy a selection of visualizer options based upon the music I am playing on my spotify client or web page. 
