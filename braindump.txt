@@ -1,13 +1,20 @@
----WEB-BASED SPOTIFY MUSIC VISUALIZER PROJECT---
+---GENERAL NOTES---
 
->LIBRARIES
-    -BASELINE
-        -REACT(VITE)
+    -Probably need to embed spotify player for better access to music data.
+    -Alternative idea: somehow get sound data from the song via spotify and then populate some sort of gif or video based on that data
+        -would need to figure out how to synch up the timing with the actual song because visual and audio would technically be separate.
+
+---WEB-BASED SPOTIFY MUSIC VISUALIZER PROJECT---
+    -REACT(VITE)
+>POSSIBLE LIBRARIES/DEPENDENCIES
     -CSS
         -MATERIAL UI
     -VISUALS
         -CANVAS
+        -WAVE.JS(pref not)
     -AUDIO
+        -ECHOPRINT (music identification and fingerprinting)
+        -SYNCSTRING
         -P5
         -TONE.JS
         -WEB AUDIO API
