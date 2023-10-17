@@ -1,6 +1,6 @@
 container.addEventListener("click", function () {
     let audio1 = new Audio();
-    audio1.src = "unlock.mp3";
+    audio1.src = "abstract.mp3";
     audio1.crossOrigin = "anonymous";
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)(); // for safari browser
     const container = document.getElementById("container");
@@ -27,43 +27,30 @@ container.addEventListener("click", function () {
         x = 0;
         ctx.clearRect(0, 0, canvas.width, canvas.height); // clears the canvas
         analyser.getByteFrequencyData(dataArray); // copies the frequency data into the dataArray in place. Each item contains a number between 0 and 255
-        // analyser.getByteTimeDomainData(dataArray); // copies the frequency data into the dataArray in place. Each item contains a number between 0 and 255
         drawVisualizer({ bufferLength, dataArray, barWidth });
         requestAnimationFrame(animate); // calls the animate function again. This method is built in
     }
 
     const drawVisualizer = ({ bufferLength, dataArray, barWidth }) => {
         let barHeight;
-        let start = Math.floor(canvas.height/2);
-        for (let i = 0; i < bufferLength; i++) {
-            barHeight = dataArray[i]*1.2; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
-            const red = (i * barHeight) / 5;
-            const green = i * 4;
-            const blue = (barHeight / 4) - 12;
-            ctx.fillStyle = `rgb(${blue}, ${green}, ${red})`;// this will start the bars at the center of the canvas and move from right to left
-            ctx.fillRect((canvas.width/2), (canvas.height / 2) - x,-1 * barHeight,-1 * barWidth); // draws the bar. the reason we're calculating Y weird here is because the canvas starts at the top left corner. So we need to start at the bottom left corner and draw the bars from there
-            ctx.fillRect((canvas.width/2), (canvas.height / 2) - (x+barWidth), barHeight, barWidth); // draws the bar. the reason we're calculating Y weird here is because the canvas starts at the top left corner. So we need to start at the bottom left corner and draw the bars from there
-            x += barWidth; // increases the x value by the width of the bar
-            
-        }
-        x = 0;
         for (let i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i]; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
             const red = (i * barHeight) / 5;
             const green = i * 4;
             const blue = (barHeight / 4) - 12;
             ctx.fillStyle = `rgb(${blue}, ${green}, ${red})`;// this will start the bars at the center of the canvas and move from right to left
-            ctx.fillRect((canvas.width/2),x + start,-1 * barHeight,-1 * barWidth); // draws the bar. the reason we're calculating Y weird here is because the canvas starts at the top left corner. So we need to start at the bottom left corner and draw the bars from there
+            ctx.fillRect(canvas.width/2, (canvas.height / 2) + x, barHeight, barWidth); // draws the bar. the reason we're calculating Y weird here is because the canvas starts at the top left corner. So we need to start at the bottom left corner and draw the bars from there
             x += barWidth; // increases the x value by the width of the bar
             
         }
+
         for (let i = 0; i < bufferLength; i++) {
             barHeight = dataArray[i]; // the height of the bar is the dataArray value. Larger sounds will have a higher value and produce a taller bar
             const red = (i * barHeight) / 5;
             const green = i * 4;
             const blue = (barHeight / 4) - 12;
             ctx.fillStyle = `rgb(${blue}, ${green}, ${red})`;
-            ctx.fillRect((canvas.width/2),x-barWidth, barHeight, barWidth); // this will continue moving from left to right
+            ctx.fillRect(canvas.width/2, canvas.height - x, barHeight, barWidth); // this will continue moving from left to right
             x += barWidth; // increases the x value by the width of the bar
             
         }

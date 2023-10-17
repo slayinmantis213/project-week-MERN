@@ -1,6 +1,6 @@
 container.addEventListener("click", function () {
     let audio1 = new Audio();
-    audio1.src = "unlock.mp3";
+    audio1.src = "universe.mp3";
     audio1.crossOrigin = "anonymous";
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)(); // for safari browser
     const container = document.getElementById("container");
@@ -27,7 +27,6 @@ container.addEventListener("click", function () {
         x = 0;
         ctx.clearRect(0, 0, canvas.width, canvas.height); // clears the canvas
         analyser.getByteFrequencyData(dataArray); // copies the frequency data into the dataArray in place. Each item contains a number between 0 and 255
-        // analyser.getByteTimeDomainData(dataArray); // copies the frequency data into the dataArray in place. Each item contains a number between 0 and 255
         drawVisualizer({ bufferLength, dataArray, barWidth });
         requestAnimationFrame(animate); // calls the animate function again. This method is built in
     }
