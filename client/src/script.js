@@ -1,6 +1,9 @@
+console.log("we out here")
+
+
 container.addEventListener("click", function () {
     let audio1 = new Audio();
-    audio1.src = "abstract.mp3";
+    audio1.src = "C:\Users\User\Desktop\coding_dojo\project-week-MERN\client\src\abstract.mp3";
     audio1.crossOrigin = "anonymous";
     const audioCtx = new (window.AudioContext || window.webkitAudioContext)(); // for safari browser
     const container = document.getElementById("container");
