@@ -1,0 +1,146 @@
+body {
+    background-color: black;
+    color: white
+}
+
+#root {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
+    font-family: monospace;
+
+}
+
+.ripple-button {
+    margin-left: 3rem;
+    height: 10rem;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, black, skyblue, lightseagreen);
+    border: none;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.5s ease-in-out;
+    animation: ripple 1.5s linear infinite;
+    // animation-iteration-count: 3;
+}
+
+.ripple-button:hover {
+    transform: scale(1.1);
+}
+
+
+/* ------------- OUTER BUTTON RIPPLE STUFF -------------- */
+$color: white;
+
+@keyframes ripple {
+    0% {
+        box-shadow:
+            0 0 0 0 rgba($color, 0.3),
+            0 0 0 1px rgba($color, 0.3),
+            0 0 0 1px rgba($color, 0.3),
+            0 0 0 1px rgba($color, 0.3);
+    }
+    
+
+    100% {
+        box-shadow:
+            0 0 0 0 rgba($color, 0.3),
+            0 0 0 4px rgba($color, 0.3),
+            0 0 0 20px rgba($color, 0),
+            0 0 0 30px rgba($color, 0);
+    }
+}
+
+/*------------ INNER BUTTON RIPPLE STUFF ---------------*/
+
+.ripple-button>.ripple {
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    background: lightblue;
+    display: block;
+    content: "";
+    border-radius: 9999px;
+    opacity: 1;
+    animation: 1s ease 1 forwards ripple-effect;
+}
+
+@keyframes ripple-effect {
+    0% {
+        transform: scale(1);
+        opacity: .4;
+    }
+
+    50% {
+        // transform: scale(10);
+        opacity: 0.2;
+    }
+
+    100% {
+        transform: scale(30);
+        opacity: 0;
+    }
+}
+
+.ripple-button>.content {
+    position: relative;
+    z-index: 2;
+}
+
+
+
+
+// pulse
+.pulse {
+    aspect-ratio: 1/1;
+    width: 15rem;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform: 3s ease;
+}
+
+.pulse:not(:hover):before {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 10rem;
+    background-color: green;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: .5;
+    transition: 3s ease;
+}
+
+.pulse:hover:after {
+    content: "";
+    position: absolute;
+    aspect-ratio: 1/1;
+    width: 10rem;
+    background-color: white;
+    border-radius: 50%;
+    z-index: 10;
+    opacity: .5;
+    transition: 3s ease;
+}
+
+.pulse:before {
+    animation: pulse 2s ease-out infinite;
+    animation-fill-mode: forwards;
+}
+
+.pulse:after {
+    animation: pulse 1s ease-out infinite;
+    animation-fill-mode: forwards;
+}
+
+@keyframes pulse {
+    100% {
+        transform: scale(2);
+        opacity: 0;
+    }
+}
