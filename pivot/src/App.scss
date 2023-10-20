@@ -68,6 +68,7 @@ body {
     background: linear-gradient(#AC3649, #260000);
 }
 
+
 .button0,
 .button1,
 .button2,
@@ -127,7 +128,7 @@ $color: white;
 .button1>.ripple,
 .button2>.ripple,
 .button3>.ripple,
-.button4>.ripple {
+.button4>.ripple{
     width: 20px;
     height: 20px;
     position: absolute;
@@ -163,7 +164,7 @@ $color: white;
 //-------------HELP MODAL----------------
 
 .modal {
-    position: fixed;
+    position: absolute;
     bottom: -150vh;
     left: 50%;
     transform: translate(-50%, -50%);
