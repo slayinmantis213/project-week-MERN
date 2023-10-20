@@ -1,33 +1,100 @@
 body {
+    background-color: #161616;
+    color: white;
+    display: flex;
+}
+
+.header{
+    font-size: 45pt;
+    font-style: italic;
+    color: grey;
+    max-width: 300px;
+    align-self: center;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    cursor: none;
+}
+
+.header:hover{
+    text-decoration: line-through;
     background-color: black;
-    color: white
+    color: white;
 }
 
 #root {
-    max-width: 100%;
     margin: 0 auto;
     padding: 2rem;
     text-align: center;
     font-family: monospace;
+    align-items: center;
+}
+
+.fixer{
+    display: flex;
+    flex-direction: column;
 
 }
 
-.ripple-button {
-    margin-left: 3rem;
+.container {
+    margin-top: 10rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+// background: linear-gradient(#570000, #330000);
+
+//---------------BUTTON STYLES----------------
+
+.button0 {
+    background: linear-gradient(#260000, rgb(10, 2, 2));
+}
+
+.button1 {
+    background: linear-gradient(#450000, rgb(26, 1, 1));
+}
+
+.button2 {
+    background: linear-gradient(#6E040C, #260000);
+}
+
+.button3 {
+    background: linear-gradient(#9B0C23, #260000);
+}
+
+.button4 {
+    background: linear-gradient(#AC3649, #260000);
+}
+
+.button0,
+.button1,
+.button2,
+.button3,
+.button4 {
+    // outline: 1px solid grey;
+    margin: 1.5rem;
     height: 10rem;
     aspect-ratio: 1;
     border-radius: 50%;
-    background: radial-gradient(closest-side, black, skyblue, lightseagreen);
     border: none;
     overflow: hidden;
     position: relative;
-    cursor: pointer;
+    cursor: none;
     transition: all 0.5s ease-in-out;
-    animation: ripple 1.5s linear infinite;
-    // animation-iteration-count: 3;
 }
 
-.ripple-button:hover {
+.out-rip {
+    animation: ripple 1.5s linear infinite;
+
+}
+
+.button0:hover,
+.button1:hover,
+.button2:hover,
+.button3:hover,
+.button4:hover {
     transform: scale(1.1);
 }
 
@@ -43,7 +110,7 @@ $color: white;
             0 0 0 1px rgba($color, 0.3),
             0 0 0 1px rgba($color, 0.3);
     }
-    
+
 
     100% {
         box-shadow:
@@ -56,11 +123,15 @@ $color: white;
 
 /*------------ INNER BUTTON RIPPLE STUFF ---------------*/
 
-.ripple-button>.ripple {
+.button0>.ripple,
+.button1>.ripple,
+.button2>.ripple,
+.button3>.ripple,
+.button4>.ripple {
     width: 20px;
     height: 20px;
     position: absolute;
-    background: lightblue;
+    background: white;
     display: block;
     content: "";
     border-radius: 9999px;
@@ -74,10 +145,9 @@ $color: white;
         opacity: .4;
     }
 
-    50% {
-        // transform: scale(10);
-        opacity: 0.2;
-    }
+    // 50% {
+    //     opacity: 0.2;
+    // }
 
     100% {
         transform: scale(30);
@@ -90,57 +160,67 @@ $color: white;
     z-index: 2;
 }
 
+//-------------HELP MODAL----------------
 
-
-
-// pulse
-.pulse {
-    aspect-ratio: 1/1;
-    width: 15rem;
-    border-radius: 50%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: 3s ease;
-}
-
-.pulse:not(:hover):before {
-    content: "";
-    position: absolute;
-    aspect-ratio: 1/1;
-    width: 10rem;
-    background-color: green;
-    border-radius: 50%;
+.modal {
+    position: fixed;
+    bottom: -150vh;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #161616;
+    padding: 4rem;
+    transition: bottom 0.3s;
     z-index: 10;
-    opacity: .5;
-    transition: 3s ease;
+    font-size: 13pt;
+    // width: 100%;
 }
 
-.pulse:hover:after {
-    content: "";
-    position: absolute;
-    aspect-ratio: 1/1;
-    width: 10rem;
-    background-color: white;
+.modal.show {
+    bottom: 0;
+    // top: 50%;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.55);
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    position: fixed;
+    display: none;
+    z-index: 5;
+}
+
+.overlay.show {
+    display: block;
+}
+
+.help{
+    width: 2rem;
+    height: 2rem;
+    font-size: 11pt;
+    align-self: end;
+    font-weight: bold;
+}
+
+.help:hover, .confirm:hover{
+    background-color: black;
+    color: white;
+}
+
+.confirm{
+    height: 4rem;
+    margin-top: 2rem;
+    font-size: 15pt;
+}
+
+.confirm, .help{
     border-radius: 50%;
-    z-index: 10;
-    opacity: .5;
-    transition: 3s ease;
-}
+    aspect-ratio: 1;
+    background-color: #303030;
+    cursor: pointer;
+    color: grey;
+    transition:all 0.6s;
+    border: none;
 
-.pulse:before {
-    animation: pulse 2s ease-out infinite;
-    animation-fill-mode: forwards;
-}
-
-.pulse:after {
-    animation: pulse 1s ease-out infinite;
-    animation-fill-mode: forwards;
-}
-
-@keyframes pulse {
-    100% {
-        transform: scale(2);
-        opacity: 0;
-    }
 }
