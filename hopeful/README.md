@@ -1,5 +1,5 @@
 # Hopeful
-> Hopeful was originally intended to be a music visualizer, but for various reasons we decided to descope and pivot to what we have here on a timeline of ~2 days.  We ended up with a cool little SPA with lots of room to expand and improve. I worked exclusively on the visual side of things while my classmate Benji engineered the sounds for the buttons.
+> Hopeful is a project dedicated to the creation of soothing, modular soundscapes.  It was originally intended to be a music visualizer, but for various reasons we decided to descope and pivot to what we have here on a timeline of ~2 days.  We ended up with a cool little SPA with lots of room to expand and improve. I worked exclusively on the visual side of things while my classmate Benji engineered the sounds for the buttons.
 ## Table of Contents
 * [Technologies Used](#technologies-used)
 * [Features](#features)
