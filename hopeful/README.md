@@ -14,7 +14,22 @@
 [Return to Table of Contents](#table-of-contents)
 
 ## Features
-- Here's a short video demo:
+- Main page with buttons for sound and "Help" modal
+- All elements have hover events
+
+![Hopeful Hover Events gif](img/hopeful-hovers-gif.gif)
+
+- When user sees this page full of buttons and is confused, they can click the help "?" button
+- Modal slides up, displaying a short message about the purpose of the page and a hint to try clicking the circles
+- User can dismiss the menu using "ok" button.
+
+![Hopeful Help Modal gif](img/hopeful-modal-gif.gif)
+
+- Clickable circles have custom ripple animations, both on click and persisting until clicked again.
+
+![Hopeful Buttons Demo gif](img/hopeful-buttons-gif.gif)
+
+- Here's a short video demo so you can hear the sounds:
 [Download Video](img/hopeful.mp4)
 
 [Return to Table of Contents](#table-of-contents)
